@@ -7,7 +7,9 @@ package com.otavio.bancounesp.banco;
 import java.util.ArrayList;
 
 /**
- *
+ * <h1>Agencia</h1>
+ * <p>Classe que cordena toda as funcionalidades das agencias e suas contas
+ * 
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class Agencia {
@@ -16,6 +18,12 @@ public class Agencia {
     private String endereco;
     private ArrayList<Conta> contas;
     
+    /**
+     * Contructor de Agencia
+     * @param codigo Numero da agencia Int
+     * @param nome Nome da agencia String
+     * @param endereco endereco da String
+     */
     public Agencia(int codigo, String nome, String endereco) {
         this.codigo = codigo;
         this.nome = nome;
@@ -23,10 +31,32 @@ public class Agencia {
         contas = new ArrayList<Conta>();
     }
     
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * Método que cria uma conta na agencia
+     * @param conta conta de um usuario do tipo Conta
+     */
     public void cadastrarConta(Conta conta) {
         contas.add(conta);
     }
 
+    /**
+     * Método que recebe uma numero de conta e a senha e retorna uma conta
+     * @param numeroConta numero da conta de um usuario Int
+     * @param senha senha de um usuario String
+     * @return retorna uma conta do tipo Conta
+     */
     public Conta buscarConta(int numeroConta, String senha) {
         Conta minhaConta = null; 
         for(Conta conta: contas) {
@@ -37,6 +67,11 @@ public class Agencia {
         return minhaConta;
     }
 
+    /**
+     * Método que recebe um numero de conta e devolve uma conta
+     * @param numeroConta numero da conta de um usuario Int
+     * @return retorna uma conta do tipo Conta
+     */
     public Conta buscarConta(int numeroConta) {
         Conta minhaConta = null; 
         for(Conta conta: contas) {
@@ -47,6 +82,11 @@ public class Agencia {
         return minhaConta;
     }
 
+    /**
+     * Método que recebe um cpf e devolve uma conta
+     * @param cpf Cpf de um usuario String
+     * @return retorna uma conta do tipo Conta
+     */
     public Conta buscarConta(String cpf) {
         Conta minhaConta = null; 
         for(int i=0; i<contas.size(); i++) {

@@ -13,12 +13,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * <h1>Extrato</h1>
+ * <p> Classe que cria um arquivo com as informações da conta do usuário (Extrato)
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class Extrato {
     private static int extratosTirados=0;
     
+    /**
+     * Método que gera um arquivo de extrato
+     * @param nome nome de uma conta String
+     * @param endereco endereço de um conta String
+     * @param cpf cpf de uma conta Strig
+     * @param saldo saldo de uma conta Double
+     * @param numero numero de uma conta Int
+     * @param nomeBanco nome do banco de uma conta String
+     * @param Agencia numero de uma agencia Int
+     */
     public static void gerarExtrato(String nome, String endereco, String cpf, double saldo, int numero, String nomeBanco, int Agencia) {
         // use esta linha no notbook File diretorio = new File("C:\\Users\\tavexx\\Documents\\NetBeansProjects\\bancounesp\\src\\main\\java\\com\\otavio\\bancounesp\\extratos"); 
         File diretorio = new File("C:\\Users\\tavin\\OneDrive\\Desktop\\3semestre\\BancoUnespPOO\\src\\main\\java\\com\\otavio\\bancounesp\\extratos"); 
