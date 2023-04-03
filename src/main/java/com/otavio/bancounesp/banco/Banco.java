@@ -7,8 +7,9 @@ package com.otavio.bancounesp.banco;
 import java.util.ArrayList;
 
 /**
- *
- * @author tavexx
+ * <h1>Banco</h1>
+ * <p>Classe que cordena toda as funcionalidades dos bancos e agencia 
+ * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class Banco {
     private int numero;
@@ -25,7 +26,35 @@ public class Banco {
         this.endereco = endereco;
         agencias = new ArrayList<Agencia>();
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getNumeroUsuario() {
+        return contaLogada.getNumeroDaConta();
+    }
+
+    public String getUsuarioCpf() {
+        return contaLogada.getCpf();
+    }
+
+    public double getSaldoUsuario() {
+        return contaLogada.getSaldo();
+    }
+
+    public String getNomeUsuario() {
+        return contaLogada.getNome();
+    }
+
+    public String getEnderecoUsuario() {
+        return contaLogada.getEndereco();
+    }
     
+    public int getAgenciaUsuario() {
+        return contaLogada.getAgencia();
+    }
+
     public void cadastrarAgencia(int codigo, String nome, String endereco) {
        Agencia agencia = new Agencia(codigo,nome,endereco);
        agencias.add(agencia);
@@ -43,7 +72,7 @@ public class Banco {
         Conta novaConta;
         Agencia agencia;
 
-        novaConta = new Conta(nome, dataNascimento, endereco, cpf, saldo, numero, senha);
+        novaConta = new Conta(nome, dataNascimento, endereco, cpf, saldo, numero, senha,numeroDaAgencia);
         agencia = buscarAgencia(numeroDaAgencia);
         agencia.cadastrarConta(novaConta);
         

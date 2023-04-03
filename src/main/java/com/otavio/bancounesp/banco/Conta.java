@@ -5,7 +5,7 @@
 package com.otavio.bancounesp.banco;
 /**
  *
- * @author tavexx
+ * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class Conta {
     private int numero;
@@ -15,8 +15,9 @@ public class Conta {
     private String cpf;
     private String dataNascimento;
     private String senha;
+    private int agencia;
     
-    public Conta(String nome, String dataNascimento, String endereco, String cpf, double saldo, int numero, String senha) {
+    public Conta(String nome, String dataNascimento, String endereco, String cpf, double saldo, int numero, String senha, int agencia) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
@@ -24,6 +25,19 @@ public class Conta {
         this.saldo = saldo;
         this.senha = senha;
         this.numero = numero;
+        this.agencia = agencia;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 
     public int getNumeroDaConta() {

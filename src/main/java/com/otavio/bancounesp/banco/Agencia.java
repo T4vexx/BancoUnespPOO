@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author tavexx
+ * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class Agencia {
     private int codigo;

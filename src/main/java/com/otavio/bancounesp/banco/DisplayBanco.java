@@ -11,13 +11,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
- * @author tavexx
+ * <h1>Display Banco</h1>
+ * <p>Classe que cordena toda a interface de usuario do banco, login e outras funcionalidades 
+ * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
  */
 public class DisplayBanco {
   
     private Banco meuBanco;
 
+    /**
+     * Constructor para DisplayBanco
+     * @param banco apontamento para o arquibo banco.txt
+     * @param agencias apontamento para o arquibo agencias.txt
+     * @param contas apontamento para o arquibo contas.txt
+     */
     public DisplayBanco(File banco,File agencias, File contas) {
         Scanner bancoFiles = null;
         Scanner agenciaFiles = null;
@@ -117,7 +124,8 @@ public class DisplayBanco {
             System.out.println("> 3 - Saque");
             System.out.println("> 4 - Transferência");
             System.out.println("> 5 - PIX");
-            System.out.println("> 6 - Sair");
+            System.out.println("> 6 - Extrato");
+            System.out.println("> 7 - Sair");
             opt = Integer.parseInt(in.nextLine());
 
             switch (opt) {
@@ -136,11 +144,14 @@ public class DisplayBanco {
                 case 5:
                     operacaoPIX();
                     break;
+                case 6:
+                    operacaoExtrato();
+                    break;
                 default :
                     operacaoSair();
             }
 
-        } while(opt != 6);
+        } while(opt != 7);
 
     }
 
@@ -268,7 +279,15 @@ public class DisplayBanco {
         
     }
 
-    private static void clrscr(){
+    private void operacaoExtrato() {
+        Extrato.gerarExtrato(meuBanco.getNomeUsuario(), meuBanco.getEnderecoUsuario(), meuBanco.getUsuarioCpf(), meuBanco.getSaldoUsuario(), meuBanco.getNumeroUsuario(),meuBanco.getNome(),meuBanco.getAgenciaUsuario());
+    }
+
+    /**
+     * Função para limpar a tela
+     * Devido as diferenças de SOs a função deve saber de qual SO esta executando para poder limpar o terminal
+     */
+    public static void clrscr(){
         //Clears Screen in java
         try {
             if (System.getProperty("os.name").contains("Windows"))
