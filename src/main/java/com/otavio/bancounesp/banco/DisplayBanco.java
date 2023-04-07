@@ -9,11 +9,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * <h1>Display Banco</h1>
  * <p>Classe que cordena toda a interface de usuario do banco, login e outras funcionalidades 
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
+ * @version 1.2
+ * @since 1.0
  */
 public class DisplayBanco {
   
@@ -111,6 +115,16 @@ public class DisplayBanco {
 
     private void telaUsuario() {
         Scanner in = new Scanner(System.in);
+        // Timer para setar para o usuario apenas 5 minutos de uso
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                login();
+            }
+        };
+        //Seta o timer para rodar a funcao apos os 5 minutos;
+        timer.schedule(timerTask, 1000*60*5);
         int opt=0;
     
         do {
@@ -125,7 +139,8 @@ public class DisplayBanco {
             System.out.println("> 4 - Transferência");
             System.out.println("> 5 - PIX");
             System.out.println("> 6 - Extrato");
-            System.out.println("> 7 - Sair");
+            System.out.println("> 7 - Trocar senha");
+            System.out.println("> 8 - Sair");
             opt = Integer.parseInt(in.nextLine());
 
             switch (opt) {
@@ -147,15 +162,19 @@ public class DisplayBanco {
                 case 6:
                     operacaoExtrato();
                     break;
-                default :
+                case 7:
+                    operacaoNovaSenha();
+                    break;
+                default:
                     operacaoSair();
             }
 
-        } while(opt != 7);
+        } while(opt != 8);
 
     }
 
     private void operacaoSair() {
+
         meuBanco.deslogarConta();
     }
 
@@ -174,6 +193,7 @@ public class DisplayBanco {
         }
 
         meuBanco.realizarDeposito(deposito);
+        System.out.println("Deposito relizado com sucesso!");
     }
 
     private void operacaoSaque() {
@@ -280,7 +300,26 @@ public class DisplayBanco {
     }
 
     private void operacaoExtrato() {
-        Extrato.gerarExtrato(meuBanco.getNomeUsuario(), meuBanco.getEnderecoUsuario(), meuBanco.getUsuarioCpf(), meuBanco.getSaldoUsuario(), meuBanco.getNumeroUsuario(),meuBanco.getNome(),meuBanco.getAgenciaUsuario());
+        Extrato.gerarExtrato(meuBanco.getNomeUsuario(), meuBanco.getEnderecoUsuario(), meuBanco.getUsuarioCpf(), meuBanco.getSaldoUsuario(), meuBanco.getNumeroUsuario(),meuBanco.getNome(),meuBanco.getAgenciaUsuario(),meuBanco.getTransacoesUsuario());
+    }
+
+    private void operacaoNovaSenha() {
+        Scanner in = new Scanner(System.in);
+        String senhaAntiga;
+        String novaSenha;
+        boolean isOperacaoValid;
+
+        System.out.printf("Digite sua senha antiga: %n> ");
+        senhaAntiga = in.nextLine();
+        System.out.printf("Digite a nova senha desejada: %n> ");
+        novaSenha = in.nextLine();
+
+        isOperacaoValid = meuBanco.trocarSenha(senhaAntiga,novaSenha);
+        if(isOperacaoValid) {
+            System.out.println("Senha alterada com sucesso");
+        } else {
+            System.out.println("Falha ao tentar mudar sua senha, Tente novamente!");
+        }
     }
 
     /**

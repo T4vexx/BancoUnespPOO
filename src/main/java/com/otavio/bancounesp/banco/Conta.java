@@ -3,10 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.otavio.bancounesp.banco;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
  * <h1>Conta</h1>
  * Classe que armazena todos os dados de uma conta
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
+ * @version 1.2
+ * @since 1.0
  */
 public class Conta {
     private int numero;
@@ -17,6 +24,7 @@ public class Conta {
     private String dataNascimento;
     private String senha;
     private int agencia;
+    private ArrayList<Transacoes> transacoes = new ArrayList<Transacoes>();
     
     /**
      * Contructor de conta
@@ -68,11 +76,17 @@ public class Conta {
         return cpf;
     }
 
+    public ArrayList<Transacoes> getTransacoes() {
+        return transacoes;
+    }
+
     /**
      * Método que deposita dinheiro na conta de um usuario
      * @param valor valor de deposito Double
      */
     public void depositar(double valor) {
+        Transacoes transacao = new Transacoes("Deposito",valor,new Date());
+        transacoes.add(transacao);
         saldo += valor;
     }
 
@@ -85,6 +99,8 @@ public class Conta {
         if(saldo - valor < 0) {
             return false;
         } else {
+            Transacoes transacao = new Transacoes("Saque",valor,new Date());
+            transacoes.add(transacao);
             saldo -= valor;
             return true;
         }
@@ -97,6 +113,21 @@ public class Conta {
      */
     public boolean validarSenha(String senha) {
         if(this.senha.equalsIgnoreCase(senha)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Método que verifica se antiga senha é valida e caso for seta a antiga com a nova senha
+     * @param senhaAntiga Senha antiga de uma conta String
+     * @param novaSenha Senha nova para uma conta String
+     * @return Retorna true se a senha for trocada com sucesso e false caso der erro
+     */
+    public boolean setSenha(String senhaAntiga, String novaSenha) {
+        if(validarSenha(senhaAntiga)) {
+            senha = novaSenha;
             return true;
         } else {
             return false;

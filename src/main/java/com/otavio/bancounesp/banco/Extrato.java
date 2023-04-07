@@ -10,12 +10,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * <h1>Extrato</h1>
  * <p> Classe que cria um arquivo com as informações da conta do usuário (Extrato)
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
+ * @version 1.2
+ * @since 1.1
  */
 public class Extrato {
     private static int extratosTirados=0;
@@ -30,9 +33,9 @@ public class Extrato {
      * @param nomeBanco nome do banco de uma conta String
      * @param Agencia numero de uma agencia Int
      */
-    public static void gerarExtrato(String nome, String endereco, String cpf, double saldo, int numero, String nomeBanco, int Agencia) {
-        // use esta linha no notbook File diretorio = new File("C:\\Users\\tavexx\\Documents\\NetBeansProjects\\bancounesp\\src\\main\\java\\com\\otavio\\bancounesp\\extratos"); 
-        File diretorio = new File("C:\\Users\\tavin\\OneDrive\\Desktop\\3semestre\\BancoUnespPOO\\src\\main\\java\\com\\otavio\\bancounesp\\extratos"); 
+    public static void gerarExtrato(String nome, String endereco, String cpf, double saldo, int numero, String nomeBanco, int Agencia, ArrayList<Transacoes> transacoes) {
+        File diretorio = new File("C:\\Users\\tavexx\\Documents\\NetBeansProjects\\bancounesp\\src\\main\\java\\com\\otavio\\bancounesp\\extratos");
+        //File diretorio = new File("C:\\Users\\tavin\\OneDrive\\Desktop\\3semestre\\BancoUnespPOO\\src\\main\\java\\com\\otavio\\bancounesp\\extratos");
         String message = String.format("%d_%d_extrato.txt",numero,extratosTirados);
         File arquivo = new File(diretorio, message);
         SimpleDateFormat formatter = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy '|' HH:mm:ss");
@@ -52,7 +55,14 @@ public class Extrato {
             printWriter.println("Conta: "+nome+"  CPF: "+cpf+"  Numero: "+numero);
             printWriter.println("Endereço: "+endereco+"  Data: "+formatter.format(new Date()));
             printWriter.println("");
-            printWriter.println("Saldo: "+saldo);
+            printWriter.println("**********************************************************************************************");
+            printWriter.println("***                                       TRANSAÇÔES                                       ***");
+            printWriter.println("**********************************************************************************************");
+            for(Transacoes t: transacoes) {
+                printWriter.println("Tipo: "+t.getTipo()+"  Valor: "+t.getValor()+"  Data: "+formatter.format(t.getData()));
+            }
+            printWriter.println("");
+            printWriter.println("Saldo Final: "+saldo);
 
             
             printWriter.flush();

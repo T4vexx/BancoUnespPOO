@@ -10,6 +10,8 @@ import java.util.ArrayList;
  * <h1>Banco</h1>
  * <p>Classe que cordena toda as funcionalidades dos bancos e agencia 
  * @author Otavio Augusto Teixeira <otavio.a.teixeira@unesp.br>
+ * @version 1.2
+ * @since 1.0
  */
 public class Banco {
     private int numero;
@@ -74,6 +76,10 @@ public class Banco {
     
     public int getAgenciaUsuario() {
         return contaLogada.getAgencia();
+    }
+
+    public ArrayList<Transacoes> getTransacoesUsuario() {
+        return contaLogada.getTransacoes();
     }
 
     /**
@@ -248,6 +254,16 @@ public class Banco {
         }
 
         return contaCpf;
+    }
+
+    /**
+     * Método que recebe uma senha antiga e uma nova verifica a antiga e se for valida muda a antiga para a nova
+     * @param senhaAntiga senha antiga do cliente String
+     * @param novaSenha nova senha para ser alterada
+     * @return retorna true se a mudança foi efetivada ou false caso der erro
+     */
+    public boolean trocarSenha(String senhaAntiga, String novaSenha) {
+        return contaLogada.setSenha(senhaAntiga,novaSenha);
     }
 
     /**

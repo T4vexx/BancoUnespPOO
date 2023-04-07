@@ -17,13 +17,21 @@ Ana Júlia Gonçalves#20/09/1976#Largo Benjamin da Rosa, 64,da Mota-GO#769060015
 Dr. Pedro Lucas Fernandes#07/02/1997#Quadra de Azevedo, 80,da Conceição de Minas-ES#08466831800#54965.83#0#94697#176975
 Guilherme Ferreira#24/01/1937#Passarela da Mata, 89,da Cruz de Silveira-AP#90715133942#17843.32#3#38825#888965
 Thiago Cardoso#05/08/1942#Rodovia da Rosa, 18,Caldeira de Goiás-DF#85675290770#2264.23#3#66622#335637
-Luiz Fernando da Luz#08/09/1989#Via de Nascimento, 79,Lima do Oeste-AP#72543076433#23068.68#4#73613#182611
-Bruna Fernandes#27/08/1994#Favela de Ramos, 89,Barros de da Cunha-GO#42626243906#23116.26#2#47961#941721
-Murilo da Costa#04/11/1934#Condomínio Enrico Correia,Jesus Grande-ES#86570805320#329.54#3#83832#978290
 Agatha Santos#08/05/1956#Lago Pinto, 294,Cardoso de da Rocha-BA#95591449603#30108.87#0#81191#416867
 Matheus da Rosa#17/05/1948#Condomínio de Fogaça, 77,Araújo-RR#04341896342#52207.86#2#56172#952673
+Luiz Fernando da Luz#08/09/1989#Via de Nascimento, 79,Lima do Oeste-AP#72543076433#23068.68#4#73613#182611
 João Gabriel Fogaça#14/08/1984#Lago Oliveira, 8,Moura de Cunha-RN#58010936723#99585.15#1#24212#715684
 Marcelo Nunes#25/03/1967#Estação Bianca Gomes, 50,Melo-RR#69752291392#92652.24#4#96213#604387
+Dra. Cecília Oliveira#27/06/1968#Lago Gomes, 6,da Mata das Pedras-AC#37140504008#96337.33#2#10012#147765
+Maria Clara Teixeira#03/08/2003#Pátio Erick Nascimento, 39,Farias do Galho-MG#78482890603#68164.09#3#60379#817448
+Lara da Rocha#06/04/1944#Recanto Calebe Novaes,Caldeira do Norte-RS#00002443503#35937.03#4#64643#395484
+Enzo Correia#25/11/1993#Viaduto Jesus, 8,Ribeiro da Prata-RR#98785399701#70505.37#1#64393#192559
+Bruna Fernandes#27/08/1994#Favela de Ramos, 89,Barros de da Cunha-GO#42626243906#23116.26#2#47961#941721
+Murilo da Costa#04/11/1934#Condomínio Enrico Correia,Jesus Grande-ES#86570805320#329.54#3#83832#978290
+Lucas Moreira#29/11/1944#Área Ana Vitória Silveira, 5,Barros Grande-TO#15292160288#34095.03#3#22146#731891
+Gustavo Melo#31/12/1964#Travessa Silveira, 6,Ramos da Mata-ES#06113489426#64473.78#4#45446#140167
+Ana Júlia Jesus#09/03/1957#Chácara de Pires, 90,Lopes de Minas-MA#14503122843#76947.64#1#63964#888741
+Luiz Miguel da Cunha#09/02/1976#Aeroporto Vitor Hugo Cardoso,Barbosa da Praia-GO#13363635095#84127.51#2#47552#794403
 Renan Nunes#24/02/1942#Lagoa Rafael da Paz, 3,Barbosa de Moura-PE#65484737877#4197.18#3#60325#958027
 Sra. Pietra Santos#25/06/2004#Rodovia Rocha,Jesus Grande-MG#36205637057#32769.22#2#80218#434379
 Letícia Teixeira#15/12/1934#Distrito de Campos,Monteiro-RO#66302696321#67339.2#3#79821#778575
